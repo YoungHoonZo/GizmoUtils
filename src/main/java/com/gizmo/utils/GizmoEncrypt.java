@@ -184,6 +184,8 @@ public class GizmoEncrypt {
 
     /**
      * 문자열을 base64로 인코딩 한다.
+     * base64 인코딩은 캐릭터셋에 따라서 값이 달라지기 때문에
+     * 인코딩된 값으로 비교를 하기 위해서는 각 캐릭터셋을 다 대조 해봐야 한다.
      * @param str
      * @return
      */
