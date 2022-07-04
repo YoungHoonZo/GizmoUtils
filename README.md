@@ -8,7 +8,7 @@ Change Logs
 ----------------------------------------------------------
 2022.07.04 
 
-           암호화 관련 GizmoEncrypt 
+           GizmoEncrypt Kisa Seed128암호화,복호화, Sha-512로 암호화, base64 인코딩
            ValueObject <-> Map 상호 변환 ConvertUtils 추가(출처: https://kim-jong-hyun.tistory.com/47#comment21603136)
 
 
