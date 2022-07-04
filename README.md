@@ -10,6 +10,7 @@ Change Logs
 
            GizmoEncrypt.java: Kisa Seed128암호화,복호화, Sha-512로 암호화, base64 인코딩
            ConvertUtils.java: ValueObject <-> Map 상호 변환(출처: https://kim-jong-hyun.tistory.com/47#comment21603136)
+           XmlUtil.java: XML 생성
 
 
 
