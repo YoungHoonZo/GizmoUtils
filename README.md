@@ -6,6 +6,6 @@
 
 Change Logs
 ----------------------------------------------------------
-2022.07.04 암호화 관련 GizmoEncrypt 
-           
+2022.07.04 
+           암호화 관련 GizmoEncrypt 
            ValueObject <-> Map 상호 변환 ConvertUtils 추가(출처: https://kim-jong-hyun.tistory.com/47#comment21603136)
