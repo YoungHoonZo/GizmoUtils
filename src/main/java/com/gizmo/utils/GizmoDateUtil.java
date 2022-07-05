@@ -74,7 +74,7 @@ public class GizmoDateUtil {
      */
     public static Date doDateCalc(String date, String fromFormat, String div, int i) throws ParseException{
         Calendar cal = new GregorianCalendar(Locale.KOREA);
-        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat format = new SimpleDateFormat(fromFormat);
         Date dt = format.parse(date);
 
         cal.setTime(dt);
@@ -95,15 +95,15 @@ public class GizmoDateUtil {
     /**
      * 특정 날짜에 대하여 요일을 구함(일 ~ 토)
      * @param date
-     * @param dateType
+     * @param fromFormat
      * @return
      * @throws Exception
      */
-    public static String getWeekDay(String date, String dateType) throws Exception {
+    public static String getWeekDay(String date, String fromFormat) throws Exception {
 
         String day = "" ;
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat(dateType) ;
+        SimpleDateFormat dateFormat = new SimpleDateFormat(fromFormat) ;
         Date nDate = dateFormat.parse(date) ;
 
         Calendar cal = Calendar.getInstance() ;
@@ -140,38 +140,23 @@ public class GizmoDateUtil {
     }
 
     /**
-    	 * 오늘날짜를 리턴한다.
-    	 * @return SimpleDateFormat
-    	 */
-    	public static SimpleDateFormat getTimeStampFormat(){
-    		SimpleDateFormat timeStamp = new SimpleDateFormat("yyyyMMddHHmmss"); // 날짜 시간으로 파일명 지정
-    //		timeStamp.format(new Date());
-    		return timeStamp;
-    	}
+     * 오늘날짜를 리턴한다.
+     * @return SimpleDateFormat
+     */
+    public static SimpleDateFormat getTimeStampFormat(){
+        SimpleDateFormat timeStamp = new SimpleDateFormat("yyyyMMddHHmmss"); // 날짜 시간으로 파일명 지정
+        return timeStamp;
+    }
 
     /**
-    	 * 오늘 날짜를 String으로 리턴한다.
-    	 * @param formatStr : yyyyMMddHHmmss 식의 포맷을 받는다.
-    	 * @return String
-    	 */
-    	public static String getTimeStampFormat(String formatStr){
-    		SimpleDateFormat timeStamp = new SimpleDateFormat(formatStr); // 날짜 시간으로 파일명 지정
-    //		timeStamp.format(new Date());
-    		return timeStamp.format(new Date()).toString();
-    	}
-
-    public static String getDataFormatChange(String date, String chgFormat){
-    	String chgDate = "";
-
-    	try{
-    		SimpleDateFormat newDate = new SimpleDateFormat(chgFormat);
-    		chgDate = newDate.format(date);
-
-    	}catch(Exception pe){
-    		pe.printStackTrace();
-    	}
-
-    	return chgDate;
+     * 오늘 날짜를 String으로 리턴한다.
+     * @param formatStr : yyyyMMddHHmmss 식의 포맷을 받는다.
+     * @return String
+     */
+    public static String getTimeStampFormat(String formatStr){
+        SimpleDateFormat timeStamp = new SimpleDateFormat(formatStr); // 날짜 시간으로 파일명 지정
+//		timeStamp.format(new Date());
+        return timeStamp.format(new Date()).toString();
     }
 
     /**
@@ -276,42 +261,6 @@ public class GizmoDateUtil {
     		return date;
     	}
     	return sb.toString();
-    }
-
-    /**
-     * 현재월을 기준으로 이전 3개월에 해당하는 월을 리턴한다.
-     * <pre>
-     * 현재월이 3월일경우 -1은 2월 -2는 1월 -3은 12월이 되어야 하고,
-     * 현재월이 1월일경우 -1은 12월 -2는 11월 -3은 10월이 되어야 하므로, 이를 계산하여
-     * 리턴하여 준다.
-     * 최대 이전 3개월까지만 가능하다.
-     * ex> getPrevMonth(3, 3) return 12
-     * </pre>
-     *
-     * @param cMonth 현재월
-     * @param prevMCnt 이전 몇월
-     * @return cMonth - prevMCnt 월
-     */
-    public static int getPrevMonth(int cMonth, int prevMCnt){
-
-        int[] mArry = {1,2,3,4,5,6,7,8,9,10,11,12};
-
-        int sMonth = 0;
-
-        if( (cMonth-prevMCnt) == 0  ){
-            sMonth = 12;
-        }
-        else if( (cMonth-prevMCnt) == -1  ){
-            sMonth = 11;
-        }
-        else if( (cMonth-prevMCnt) == -2  ){
-            sMonth = 10;
-        }
-        else{
-            sMonth = cMonth-prevMCnt;
-        }
-
-        return sMonth;
     }
 
     /**

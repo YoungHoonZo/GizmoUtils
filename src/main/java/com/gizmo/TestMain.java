@@ -1,25 +1,45 @@
 package com.gizmo;
 
-import com.gizmo.utils.CharsetEnum;
-import com.gizmo.utils.GizmoEncrypt;
-import com.gizmo.utils.XmlUtil;
-import com.gizmo.utils.XmlWrapper;
+import com.gizmo.utils.*;
 import com.gizmo.utils.vo.Student;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.ParseException;
+import java.util.*;
 
 public class TestMain {
     public static void main(String[] args) {
         encrypt();
 		System.out.println("");
 		xml();
+		System.out.println("");
+		date();
     }
+
+	public static void date(){
+		System.out.println("================ date test ================");
+
+		try {
+			Date date = GizmoDateUtil.toDateFromStringDate("2022-06-11", "yyyy-MM-dd");
+			System.out.println("GizmoDateUtil.toDateFromStringDate : " + date.toString());
+			System.out.println("GizmoDateUtil.doDateCalc : " + GizmoDateUtil.doDateCalc(date, "D", -9));
+			System.out.println("GizmoDateUtil.doDateCalc : " + GizmoDateUtil.doDateCalc("2022-06-11", "yyyy-MM-dd", "D", -9));
+			System.out.println("GizmoDateUtil.getWeekDay : " + GizmoDateUtil.getWeekDay("2022-06-11", "yyyy-MM-dd"));
+			System.out.println("GizmoDateUtil.getTimeStampFormat : " + GizmoDateUtil.getTimeStampFormat().get2DigitYearStart());
+			System.out.println("GizmoDateUtil.getTimeStampFormat : " + GizmoDateUtil.getTimeStampFormat("yyyy-MM-dd HH:mm:ss.SSS"));
+			System.out.println("GizmoDateUtil.doCompareDate : " + GizmoDateUtil.doCompareDate(GizmoDateUtil.toDateFromStringDate("2022-06-11", "yyyy-MM-dd"),
+					GizmoDateUtil.toDateFromStringDate("2024-06-11", "yyyy-MM-dd")));
+
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+
+		System.out.println("================ date end ================");
+	}
 
 	public static void xml() {
 		System.out.println("================ xml test ================");
