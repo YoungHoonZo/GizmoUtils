@@ -13,25 +13,19 @@ import java.util.Map.Entry;
  */
 public class XmlWrapper {
 
-    /**
-     * 생성자, 외부에서 객체를 인스턴스화 할 수 없도록 설정
-     */
-    public XmlWrapper() {
-    }
-
-    public static String doJsonToXml(JSONArray json) {
-        XMLSerializer xmlSerializer = new XMLSerializer();
-        String xml = xmlSerializer.write(JSONArray.fromObject(json));
-
-        return xml;
-    }
+//    public static String doJsonToXml(JSONArray json) {
+//        XMLSerializer xmlSerializer = new XMLSerializer();
+//        String xml = xmlSerializer.write(JSONArray.fromObject(json));
+//
+//        return xml;
+//    }
 
     /**
      * List를 XML로 만든다.
      * @param list Map형식의 List 데이터.
      * @return
      */
-    public String doListToXML(List<Map<String, Object>> list) {
+    protected String doListToXML(List<Map<String, Object>> list) {
 //      return convertToXML(list, isContainSpecialChar, null);
 
         String xmlStr = "<ROOT>\n";
@@ -51,7 +45,7 @@ public class XmlWrapper {
      *
      * @return xml 형식으로 변환된 문자열
      */
-    public String render(Map<String, Object> map, ArrayList exceptColumn) {
+    protected String render(Map<String, Object> map, ArrayList exceptColumn) {
         return format(map, exceptColumn);
     }
 
@@ -66,7 +60,7 @@ public class XmlWrapper {
      *
      * @return xml 형식으로 변환된 문자열
      */
-    public String render(Map<String, Object> map, String encoding, ArrayList exceptColumn) {
+    protected String render(Map<String, Object> map, String encoding, ArrayList exceptColumn) {
         return format(map, encoding, exceptColumn);
     }
 
@@ -80,7 +74,7 @@ public class XmlWrapper {
      *
      * @return xml형식으로 변환된 문자열
      */
-    public String render(List<Map<String, Object>> mapList, ArrayList exceptColumn) {
+    protected String render(List<Map<String, Object>> mapList, ArrayList exceptColumn) {
         return format(mapList, exceptColumn);
     }
 
@@ -95,7 +89,7 @@ public class XmlWrapper {
      *
      * @return xml형식으로 변환된 문자열
      */
-    public String render(List<Map<String, Object>> mapList, String encoding, ArrayList exceptColumn) {
+    protected String render(List<Map<String, Object>> mapList, String encoding, ArrayList exceptColumn) {
         return format(mapList, encoding, exceptColumn);
     }
 
@@ -110,7 +104,7 @@ public class XmlWrapper {
      *
      * @return xml 형식으로 변환된 문자열
      */
-    public String format(Map<String, Object> map, String encoding, ArrayList exceptColumn) {
+    protected String format(Map<String, Object> map, String encoding, ArrayList exceptColumn) {
         if (map == null) {
             return null;
         }
@@ -130,7 +124,7 @@ public class XmlWrapper {
      *
      * @return xml 형식으로 변환된 문자열
      */
-    public String format(Map<String, Object> map, ArrayList exceptColumn) {
+    protected String format(Map<String, Object> map, ArrayList exceptColumn) {
         if (map == null) {
             return null;
         }
@@ -152,7 +146,7 @@ public class XmlWrapper {
      *
      * @return xml형식으로 변환된 문자열
      */
-    public String format(List<Map<String, Object>> mapList, String encoding, ArrayList exceptColumn) {
+    protected String format(List<Map<String, Object>> mapList, String encoding, ArrayList exceptColumn) {
         if (mapList == null) {
             return null;
         }
@@ -172,7 +166,7 @@ public class XmlWrapper {
      *
      * @return xml형식으로 변환된 문자열
      */
-    public String format(List<Map<String, Object>> mapList, ArrayList exceptColumn) {
+    protected String format(List<Map<String, Object>> mapList, ArrayList exceptColumn) {
         if (mapList == null) {
             return null;
         }
@@ -189,7 +183,7 @@ public class XmlWrapper {
     /**
      *  xml 헤더 문자열 생성
      */
-    private String xmlHeaderStr(String encoding) {
+    protected String xmlHeaderStr(String encoding) {
         return "<?xml version=\"1.0\" encoding=\"" + encoding + "\"?>\n";
     }
 
@@ -197,7 +191,7 @@ public class XmlWrapper {
      * xml item 문자열 생성
      */
     @SuppressWarnings("unchecked")
-    private String xmlItemStr(Map<String, Object> map, ArrayList exceptColumn) {
+    protected String xmlItemStr(Map<String, Object> map, ArrayList exceptColumn) {
         StringBuilder buffer = new StringBuilder();
         buffer.append("<item>\n");
         for (Entry<String, Object> entry : map.entrySet()) {

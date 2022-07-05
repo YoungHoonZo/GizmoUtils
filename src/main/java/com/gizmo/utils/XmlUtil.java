@@ -56,6 +56,15 @@ public class XmlUtil {
         return xmlStr;
     }
 
+    public static String doObjectToXML(Object obj){
+        XmlWrapper wrapper = new XmlWrapper();
+
+        String xmlStr = "<ROOT>\n";
+        xmlStr += wrapper.format(ConvertUtils.convertToMap(obj), null);
+        xmlStr += "</ROOT>\n";
+
+        return xmlStr;
+    }
 
     /**
      * Map 데이터를 xml로 변환한다.
