@@ -13,7 +13,7 @@ public class XmlUtil {
     public static final int BUFF_SIZE = 2048;
 
     /**
-     * List를 XML로 만든다.
+     * ArrayList를 XML로 만든다.
      * @param list List 데이터.
      */
     public static String doListToXML(ArrayList<Map<String, Object>> list) throws InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException {
@@ -27,7 +27,7 @@ public class XmlUtil {
     }
 
     /**
-     * List를 XML로 만든다.
+     * Vo 또는 Dto List를 XML로 만든다.
      * @param list List 데이터.
      */
     public static String doListToXML(List<?> list) throws InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException {
@@ -41,8 +41,8 @@ public class XmlUtil {
     }
 
     /**
-     * List를 XML로 만든다.
-     * @param list Map형식의 List 데이터.
+     * Vo 또는 Dto List를 XML로 만든다.
+     * @param list Vo 또는 Dto의 List 데이터
      * @param exceptColumn 리스트 데이터중 제외 하고자 하는 컬럼이 있을때 해당 컬럼의 key값을 ArrayList로 넘긴다.
      * @return
      */
