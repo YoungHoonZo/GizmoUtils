@@ -1,4 +1,6 @@
-package com.innosoft.common.util;
+package com.gizmo.utils;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,9 +9,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-import org.apache.commons.lang3.StringUtils;
-
-public class InnoDateUtil {
+public class GizmoDateUtil {
 
     public static final int TYPE_DOT = 1;
     public static final int TYPE_SLASH = 2;

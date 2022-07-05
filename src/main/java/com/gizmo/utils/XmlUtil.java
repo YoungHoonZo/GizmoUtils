@@ -56,6 +56,11 @@ public class XmlUtil {
         return xmlStr;
     }
 
+    /**
+     * Value Object(VO) 또는 Data Object(Dto)를 Object로 받아서 xml로 변환 한다.
+     * @param obj 변환 하고자 하는 Vo 또는 Dto
+     * @return
+     */
     public static String doObjectToXML(Object obj){
         XmlWrapper wrapper = new XmlWrapper();
 
